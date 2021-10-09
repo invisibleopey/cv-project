@@ -20,6 +20,15 @@ class App extends Component {
     };
   }
 
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      genInfo: {
+        [name]: value,
+      },
+    });
+  };
+
   render() {
     const { genInfo } = this.state;
     return (
@@ -27,7 +36,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Resume Regenetor with React</h1>
         </header>
-        <GeneralInfo genInfo={genInfo} />
+        <GeneralInfo genInfo={genInfo} handleChange={this.handleChange} />
         <Education />
         <Experience />
       </div>
