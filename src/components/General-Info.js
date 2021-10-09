@@ -1,33 +1,34 @@
 import React from 'react';
 
-function GeneralInfo() {
+function GeneralInfo(props) {
+  const { genInfo } = props;
   return (
     <div>
       <h2>General Information</h2>
       <form action="#" className="gen-info">
         <label htmlFor="firstName">
           First Name:
-          <input type="text" name="firstName" value="Abdullahi" />
+          <input type="text" name="firstName" value={genInfo.firstName} />
         </label>
         <label htmlFor="lastName">
           Last Name:
-          <input type="text" name="lastName" value="Muritala" />
+          <input type="text" name="lastName" value={genInfo.lastName} />
         </label>
         <label htmlFor="title">
           Title:
-          <input type="text" name="title" value="Junior Web Developer" />
+          <input type="text" name="title" value={genInfo.title} />
         </label>
         <label htmlFor="address">
           Address:
-          <input type="text" name="address" value="Agbede, Ilorin, Nigeria" />
+          <input type="text" name="address" value={genInfo.address} />
         </label>
         <label htmlFor="email">
           Email:
-          <input type="email" name="email" value="exaple@gmail.com" />
+          <input type="email" name="email" value={genInfo.email} />
         </label>
         <label htmlFor="phoneNumber">
           Phone Number:
-          <input type="text" name="phoneNumber" value="1234567890" />
+          <input type="text" name="phoneNumber" value={genInfo.phoneNumber} />
         </label>
         <button type="submit">Submit</button>
       </form>
