@@ -20,7 +20,7 @@ h1 {
 .form-container {
   width: 50%;
   margin: 0 auto;
-  border: 1px solid burlywood;
+  border: 5px solid burlywood;
 }
 
 .gen-info {
@@ -31,4 +31,22 @@ h1 {
 }
 .gen-info input {
   padding: 5px 10px;
+}
+
+.overview-container {
+  width: 50%;
+  margin: 2em auto;
+  border: 5px solid burlywood;
+}
+
+.overview-hero {
+  background: cadetblue;
+  padding: 1em;
+  text-align: left;
+  color: white;
+}
+.overview-hero h2,
+.overview-hero h3 {
+  margin: 0;
+  padding: 0;
 }
