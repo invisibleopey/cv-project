@@ -3,42 +3,64 @@ import GeneralInfo from './components/General-Info';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import './styles/App.css';
+import Overview from './components/Overview';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      genInfo: {
-        firstName: 'Abdullah',
-        lastName: 'Murtala',
-        title: 'Jnr Developer',
-        address: 'Agbede, Ilorin',
-        email: 'oabdullahi@example.com',
-        phoneNumber: '09012345678',
-      },
+      firstName: '',
+      lastName: '',
+      title: '',
+      address: '',
+      email: '',
+      phoneNumber: '',
+      description: '',
     };
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
-      genInfo: {
-        [name]: value,
-      },
+      [name]: value,
     });
   };
 
   render() {
-    const { genInfo } = this.state;
+    const { firstName, lastName, title, address, email, phoneNumber, description } = this.state;
     return (
       <div className="App">
         <header className="App-header">
           <h1>Resume Regenetor with React</h1>
         </header>
-        <GeneralInfo genInfo={genInfo} handleChange={this.handleChange} />
-        <Education />
-        <Experience />
+        <main>
+          <div className="form-container">
+            <GeneralInfo
+              firstName={firstName}
+              lastName={lastName}
+              title={title}
+              address={address}
+              email={email}
+              phoneNumber={phoneNumber}
+              description={description}
+              handleChange={this.handleChange}
+            />
+            <Education />
+            <Experience />
+          </div>
+          <div className="overview-container">
+            <Overview
+              firstName={firstName}
+              lastName={lastName}
+              title={title}
+              address={address}
+              email={email}
+              phoneNumber={phoneNumber}
+              description={description}
+            />
+          </div>
+        </main>
       </div>
     );
   }
