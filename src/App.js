@@ -17,6 +17,15 @@ class App extends Component {
       email: '',
       phoneNumber: '',
       description: '',
+      school: {
+        name: '',
+        city: '',
+        degree: '',
+        subject: '',
+        startDate: '',
+        endDate: '',
+      },
+      schools: [],
     };
   }
 
@@ -28,7 +37,8 @@ class App extends Component {
   };
 
   render() {
-    const { firstName, lastName, title, address, email, phoneNumber, description } = this.state;
+    const { firstName, lastName, title, address, email, phoneNumber, description, school } =
+      this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -46,7 +56,7 @@ class App extends Component {
               description={description}
               handleChange={this.handleChange}
             />
-            <Education />
+            <Education school={school} />
             <Experience />
           </div>
           <div className="overview-container">
