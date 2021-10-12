@@ -1,8 +1,7 @@
 import React from 'react';
 
 function GeneralInfo(props) {
-  const { handleChange, firstName, lastName, title, address, email, phoneNumber, description } =
-    props;
+  const { handleChange, genInfo } = props;
   return (
     <div>
       <h2>General Information</h2>
@@ -10,36 +9,42 @@ function GeneralInfo(props) {
         <input
           type="text"
           name="firstName"
-          value={firstName}
+          value={genInfo.firstName}
           onChange={handleChange}
           placeholder="First Name"
         />
         <input
           type="text"
           name="lastName"
-          value={lastName}
+          value={genInfo.lastName}
           onChange={handleChange}
           placeholder="Last Name"
         />
-        <input type="text" name="title" value={title} onChange={handleChange} placeholder="Title" />
+        <input
+          type="text"
+          name="title"
+          value={genInfo.title}
+          onChange={handleChange}
+          placeholder="Title"
+        />
         <input
           type="text"
           name="address"
-          value={address}
+          value={genInfo.address}
           onChange={handleChange}
           placeholder="Address"
         />
         <input
           type="email"
           name="email"
-          value={email}
+          value={genInfo.email}
           onChange={handleChange}
           placeholder="Email"
         />
         <input
           type="text"
           name="phoneNumber"
-          value={phoneNumber}
+          value={genInfo.phoneNumber}
           onChange={handleChange}
           placeholder="Phone Number"
         />
@@ -48,7 +53,7 @@ function GeneralInfo(props) {
           cols="10"
           rows="10"
           placeholder="Description"
-          value={description}
+          value={genInfo.description}
           onChange={handleChange}
         ></textarea>
       </form>

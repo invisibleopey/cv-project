@@ -1,23 +1,23 @@
 import React from 'react';
 
 function Overview(props) {
-  const { firstName, lastName, title, address, email, phoneNumber, description, school } = props;
+  const { genInfo, school } = props;
   return (
     <div>
       <div className="overview-hero">
-        <h2>{`${firstName} ${lastName}`}</h2>
-        <h3>{title}</h3>
+        <h2>{`${genInfo.firstName} ${genInfo.lastName}`}</h2>
+        <h3>{genInfo.title}</h3>
       </div>
       <div className="overview-main">
         <div className="contact-details">
           <h3>Contact Details</h3>
-          <p>Address: {address}</p>
-          <p>Email: {email}</p>
-          <p>Phone Number: {phoneNumber}</p>
+          <p>Address: {genInfo.address}</p>
+          <p>Email: {genInfo.email}</p>
+          <p>Phone Number: {genInfo.phoneNumber}</p>
         </div>
         <div className="description">
           <h3>Description</h3>
-          <p>{description}</p>
+          <p>{genInfo.description}</p>
         </div>
         <div className="overview-edu">
           <h3>Education</h3>

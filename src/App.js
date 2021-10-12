@@ -10,13 +10,15 @@ class App extends Component {
     super(props);
 
     this.state = {
-      firstName: '',
-      lastName: '',
-      title: '',
-      address: '',
-      email: '',
-      phoneNumber: '',
-      description: '',
+      genInfo: {
+        firstName: '',
+        lastName: '',
+        title: '',
+        address: '',
+        email: '',
+        phoneNumber: '',
+        description: '',
+      },
       school: {
         name: 'Unilorin',
         city: 'Ilorin',
@@ -31,8 +33,13 @@ class App extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: value,
+    this.setState((prevState) => {
+      return {
+        genInfo: {
+          ...prevState.genInfo,
+          [name]: value,
+        },
+      };
     });
   };
 
@@ -49,8 +56,7 @@ class App extends Component {
   };
 
   render() {
-    const { firstName, lastName, title, address, email, phoneNumber, description, school } =
-      this.state;
+    const { genInfo, school } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -58,30 +64,12 @@ class App extends Component {
         </header>
         <main>
           <div className="form-container">
-            <GeneralInfo
-              firstName={firstName}
-              lastName={lastName}
-              title={title}
-              address={address}
-              email={email}
-              phoneNumber={phoneNumber}
-              description={description}
-              handleChange={this.handleChange}
-            />
+            <GeneralInfo genInfo={genInfo} handleChange={this.handleChange} />
             <Education school={school} handleSchoolChange={this.handleSchoolChange} />
             <Experience />
           </div>
           <div className="overview-container">
-            <Overview
-              firstName={firstName}
-              lastName={lastName}
-              title={title}
-              address={address}
-              email={email}
-              phoneNumber={phoneNumber}
-              description={description}
-              school={school}
-            />
+            <Overview genInfo={genInfo} school={school} />
           </div>
         </main>
       </div>
