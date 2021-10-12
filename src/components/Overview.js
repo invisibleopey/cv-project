@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Overview(props) {
-  const { firstName, lastName, title, address, email, phoneNumber, description } = props;
+  const { firstName, lastName, title, address, email, phoneNumber, description, school } = props;
   return (
     <div>
       <div className="overview-hero">
@@ -18,6 +18,19 @@ function Overview(props) {
         <div className="description">
           <h3>Description</h3>
           <p>{description}</p>
+        </div>
+        <div className="overview-edu">
+          <h3>Education</h3>
+          <div className="schools">
+            <div>
+              <h4>{`${school.startDate} - ${school.endDate}`}</h4>
+            </div>
+            <div>
+              <h4>{school.name}</h4>
+              <p>Degree: {school.degree}</p>
+              <p>Subject: {school.subject}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
