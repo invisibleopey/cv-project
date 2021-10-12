@@ -36,6 +36,15 @@ class App extends Component {
     });
   };
 
+  handleSchoolChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      school: {
+        [name]: value,
+      },
+    });
+  };
+
   render() {
     const { firstName, lastName, title, address, email, phoneNumber, description, school } =
       this.state;
@@ -56,7 +65,7 @@ class App extends Component {
               description={description}
               handleChange={this.handleChange}
             />
-            <Education school={school} />
+            <Education school={school} handleSchoolChange={this.handleSchoolChange} />
             <Experience />
           </div>
           <div className="overview-container">

@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Education(props) {
-  const { school } = props;
+  const { school, handleSchoolChange } = props;
   return (
     <div>
       <h2>Education</h2>
@@ -10,42 +10,42 @@ function Education(props) {
           type="text"
           name="name"
           value={school.name}
-          // onChange={handleChange}
+          onChange={handleSchoolChange}
           placeholder="University Name"
         />
         <input
           type="text"
           name="city"
           value={school.city}
-          // onChange={handleChange}
+          onChange={handleSchoolChange}
           placeholder="City"
         />
         <input
           type="text"
           name="degree"
           value={school.degree}
-          // onChange={handleChange}
+          onChange={handleSchoolChange}
           placeholder="Degree"
         />
         <input
           type="text"
           name="subject"
           value={school.subject}
-          // onChange={handleChange}
+          onChange={handleSchoolChange}
           placeholder="Subject"
         />
         <input
           type="text"
           name="startDate"
           value={school.startDate}
-          // onChange={handleChange}
+          onChange={handleSchoolChange}
           placeholder="From"
         />
         <input
           type="text"
           name="endDate"
           value={school.endDate}
-          // onChange={handleChange}
+          onChange={handleSchoolChange}
           placeholder="To"
         />
         <button type="submit">ADD</button>
