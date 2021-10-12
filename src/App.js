@@ -38,10 +38,13 @@ class App extends Component {
 
   handleSchoolChange = (event) => {
     const { name, value } = event.target;
-    this.setState({
-      school: {
-        [name]: value,
-      },
+    this.setState((prevState) => {
+      return {
+        school: {
+          ...prevState.school,
+          [name]: value,
+        },
+      };
     });
   };
 
@@ -77,6 +80,7 @@ class App extends Component {
               email={email}
               phoneNumber={phoneNumber}
               description={description}
+              school={school}
             />
           </div>
         </main>
