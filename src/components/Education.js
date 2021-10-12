@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Education(props) {
+  const { school } = props;
   return (
     <div>
       <h2>Education</h2>
@@ -8,42 +9,42 @@ function Education(props) {
         <input
           type="text"
           name="name"
-          value="University of Ilorin"
+          value={school.name}
           // onChange={handleChange}
           placeholder="University Name"
         />
         <input
           type="text"
           name="city"
-          value="Ilorin"
+          value={school.city}
           // onChange={handleChange}
           placeholder="City"
         />
         <input
           type="text"
           name="degree"
-          value="MBBS"
+          value={school.degree}
           // onChange={handleChange}
           placeholder="Degree"
         />
         <input
           type="text"
           name="subject"
-          value="Medicine and Surgery"
+          value={school.subject}
           // onChange={handleChange}
           placeholder="Subject"
         />
         <input
           type="text"
           name="startDate"
-          value="2015"
+          value={school.startDate}
           // onChange={handleChange}
           placeholder="From"
         />
         <input
           type="text"
           name="endDate"
-          value="2022"
+          value={school.endDate}
           // onChange={handleChange}
           placeholder="To"
         />
