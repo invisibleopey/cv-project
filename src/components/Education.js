@@ -1,11 +1,11 @@
 import React from 'react';
 
 function Education(props) {
-  const { school, handleSchoolChange } = props;
+  const { school, handleSchoolChange, handleSchoolSubmit } = props;
   return (
     <div>
       <h2>Education</h2>
-      <form action="#" className="education">
+      <form action="#" className="education" onSubmit={handleSchoolSubmit}>
         <input
           type="text"
           name="name"

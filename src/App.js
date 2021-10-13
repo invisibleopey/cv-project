@@ -55,8 +55,23 @@ class App extends Component {
     });
   };
 
+  handleSchoolSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+      schools: this.state.schools.concat(this.state.school),
+      school: {
+        name: '',
+        city: '',
+        degree: '',
+        subject: '',
+        startDate: '',
+        endDate: '',
+      },
+    });
+  };
+
   render() {
-    const { genInfo, school } = this.state;
+    const { genInfo, school, schools } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -65,11 +80,15 @@ class App extends Component {
         <main>
           <div className="form-container">
             <GeneralInfo genInfo={genInfo} handleChange={this.handleChange} />
-            <Education school={school} handleSchoolChange={this.handleSchoolChange} />
+            <Education
+              school={school}
+              handleSchoolChange={this.handleSchoolChange}
+              handleSchoolSubmit={this.handleSchoolSubmit}
+            />
             <Experience />
           </div>
           <div className="overview-container">
-            <Overview genInfo={genInfo} school={school} />
+            <Overview genInfo={genInfo} school={school} schools={schools} />
           </div>
         </main>
       </div>
