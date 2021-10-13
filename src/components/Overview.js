@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Overview(props) {
   const { genInfo, schools } = props;
@@ -32,6 +34,8 @@ function Overview(props) {
                   <p>Degree: {school.degree}</p>
                   <p>Subject: {school.subject}</p>
                 </div>
+                <FontAwesomeIcon icon={faEdit} />
+                <FontAwesomeIcon icon={faTrashAlt} />
               </div>
             );
           })}
