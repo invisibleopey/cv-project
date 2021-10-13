@@ -20,12 +20,12 @@ class App extends Component {
         description: '',
       },
       school: {
-        name: 'Unilorin',
-        city: 'Ilorin',
-        degree: 'MBBS',
-        subject: 'Medicine and Surgery',
-        startDate: '2015',
-        endDate: '2022',
+        name: '',
+        city: '',
+        degree: '',
+        subject: '',
+        startDate: '',
+        endDate: '',
       },
       schools: [],
     };

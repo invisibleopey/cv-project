@@ -26,7 +26,7 @@ function Overview(props) {
               <h4>{`${school.startDate} - ${school.endDate}`}</h4>
             </div>
             <div>
-              <h4>{school.name}</h4>
+              <h4>{`${school.name}, ${school.city}`}</h4>
               <p>Degree: {school.degree}</p>
               <p>Subject: {school.subject}</p>
             </div>
