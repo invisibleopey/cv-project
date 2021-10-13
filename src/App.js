@@ -73,6 +73,13 @@ class App extends Component {
     });
   };
 
+  handleSchoolDelete = (event) => {
+    const targetId = event.target.parentNode.parentElement.id;
+    this.setState({
+      schools: this.state.schools.filter((school) => school.id !== targetId),
+    });
+  };
+
   render() {
     const { genInfo, school, schools } = this.state;
     return (
@@ -91,7 +98,12 @@ class App extends Component {
             <Experience />
           </div>
           <div className="overview-container">
-            <Overview genInfo={genInfo} school={school} schools={schools} />
+            <Overview
+              genInfo={genInfo}
+              school={school}
+              schools={schools}
+              handleSchoolDelete={this.handleSchoolDelete}
+            />
           </div>
         </main>
       </div>
