@@ -23,7 +23,7 @@ function Overview(props) {
           <h3>Education</h3>
           {schools.map((school) => {
             return (
-              <div className="schools">
+              <div className="schools" key={school.id}>
                 <div>
                   <h4>{`${school.startDate} - ${school.endDate}`}</h4>
                 </div>

@@ -4,6 +4,7 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import './styles/App.css';
 import Overview from './components/Overview';
+import uniqid from 'uniqid';
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends Component {
         subject: '',
         startDate: '',
         endDate: '',
+        id: uniqid(),
       },
       schools: [],
     };
@@ -66,6 +68,7 @@ class App extends Component {
         subject: '',
         startDate: '',
         endDate: '',
+        id: uniqid(),
       },
     });
   };
