@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Overview(props) {
-  const { genInfo, school } = props;
+  const { genInfo, schools } = props;
   return (
     <div>
       <div className="overview-hero">
@@ -21,16 +21,20 @@ function Overview(props) {
         </div>
         <div className="overview-edu">
           <h3>Education</h3>
-          <div className="schools">
-            <div>
-              <h4>{`${school.startDate} - ${school.endDate}`}</h4>
-            </div>
-            <div>
-              <h4>{`${school.name}, ${school.city}`}</h4>
-              <p>Degree: {school.degree}</p>
-              <p>Subject: {school.subject}</p>
-            </div>
-          </div>
+          {schools.map((school) => {
+            return (
+              <div className="schools">
+                <div>
+                  <h4>{`${school.startDate} - ${school.endDate}`}</h4>
+                </div>
+                <div>
+                  <h4>{`${school.name}, ${school.city}`}</h4>
+                  <p>Degree: {school.degree}</p>
+                  <p>Subject: {school.subject}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
