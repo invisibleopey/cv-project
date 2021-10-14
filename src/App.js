@@ -30,6 +30,15 @@ class App extends Component {
         id: uniqid(),
       },
       schools: [],
+      job: {
+        position: 'Junior Dev',
+        company: 'Facebook',
+        city: 'London',
+        startDate: '2023',
+        endDate: 'Present',
+        id: uniqid(),
+      },
+      jobs: [],
     };
   }
 
@@ -100,7 +109,7 @@ class App extends Component {
   };
 
   render() {
-    const { genInfo, school, schools } = this.state;
+    const { genInfo, school, schools, job } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -114,7 +123,7 @@ class App extends Component {
               handleSchoolChange={this.handleSchoolChange}
               handleSchoolSubmit={this.handleSchoolSubmit}
             />
-            <Experience />
+            <Experience job={job} />
           </div>
           <div className="overview-container">
             <Overview
