@@ -1,11 +1,11 @@
 import React from 'react';
 
 function Experience(props) {
-  const { job, handleJobChange } = props;
+  const { job, handleJobChange, handleJobSubmit } = props;
   return (
     <div>
       <h2>Experience</h2>
-      <form action="#" className="experience">
+      <form action="#" className="experience" onSubmit={handleJobSubmit}>
         <input
           type="text"
           name="position"

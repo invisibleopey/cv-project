@@ -120,8 +120,23 @@ class App extends Component {
     });
   };
 
+  handleJobSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+      jobs: this.state.jobs.concat(this.state.job),
+      job: {
+        position: '',
+        company: '',
+        city: '',
+        startDate: '',
+        endDate: '',
+        id: uniqid(),
+      },
+    });
+  };
+
   render() {
-    const { genInfo, school, schools, job } = this.state;
+    const { genInfo, school, schools, job, jobs } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -135,15 +150,19 @@ class App extends Component {
               handleSchoolChange={this.handleSchoolChange}
               handleSchoolSubmit={this.handleSchoolSubmit}
             />
-            <Experience job={job} handleJobChange={this.handleJobChange} />
+            <Experience
+              job={job}
+              handleJobChange={this.handleJobChange}
+              handleJobSubmit={this.handleJobSubmit}
+            />
           </div>
           <div className="overview-container">
             <Overview
               genInfo={genInfo}
-              school={school}
               schools={schools}
               handleSchoolDelete={this.handleSchoolDelete}
               handleSchoolEdit={this.handleSchoolEdit}
+              jobs={jobs}
             />
           </div>
         </main>
