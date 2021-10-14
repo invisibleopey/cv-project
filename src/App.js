@@ -31,11 +31,11 @@ class App extends Component {
       },
       schools: [],
       job: {
-        position: 'Junior Dev',
-        company: 'Facebook',
-        city: 'London',
-        startDate: '2023',
-        endDate: 'Present',
+        position: '',
+        company: '',
+        city: '',
+        startDate: '',
+        endDate: '',
         id: uniqid(),
       },
       jobs: [],
@@ -108,6 +108,18 @@ class App extends Component {
     });
   };
 
+  handleJobChange = (event) => {
+    const { name, value } = event.target;
+    this.setState((prevState) => {
+      return {
+        job: {
+          ...prevState.job,
+          [name]: value,
+        },
+      };
+    });
+  };
+
   render() {
     const { genInfo, school, schools, job } = this.state;
     return (
@@ -123,7 +135,7 @@ class App extends Component {
               handleSchoolChange={this.handleSchoolChange}
               handleSchoolSubmit={this.handleSchoolSubmit}
             />
-            <Experience job={job} />
+            <Experience job={job} handleJobChange={this.handleJobChange} />
           </div>
           <div className="overview-container">
             <Overview
