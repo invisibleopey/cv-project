@@ -80,6 +80,25 @@ class App extends Component {
     });
   };
 
+  handleSchoolEdit = (event) => {
+    const targetId = event.target.parentNode.parentElement.id;
+    this.setState((prevState) => {
+      const targetSchool = prevState.schools.find((school) => school.id === targetId);
+      return {
+        school: {
+          name: targetSchool.name,
+          city: targetSchool.city,
+          degree: targetSchool.degree,
+          subject: targetSchool.subject,
+          startDate: targetSchool.startDate,
+          endDate: targetSchool.endDate,
+          id: targetSchool.id,
+        },
+        schools: prevState.schools.filter((school) => school.id !== targetId),
+      };
+    });
+  };
+
   render() {
     const { genInfo, school, schools } = this.state;
     return (
@@ -103,6 +122,7 @@ class App extends Component {
               school={school}
               schools={schools}
               handleSchoolDelete={this.handleSchoolDelete}
+              handleSchoolEdit={this.handleSchoolEdit}
             />
           </div>
         </main>
