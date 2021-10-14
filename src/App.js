@@ -135,6 +135,31 @@ class App extends Component {
     });
   };
 
+  handleJobDelete = (event) => {
+    const targetId = event.target.parentNode.parentElement.id;
+    this.setState({
+      jobs: this.state.jobs.filter((job) => job.id !== targetId),
+    });
+  };
+
+  handleJobEdit = (event) => {
+    const targetId = event.target.parentNode.parentElement.id;
+    this.setState((prevState) => {
+      const targetJob = prevState.jobs.find((job) => job.id === targetId);
+      return {
+        job: {
+          position: targetJob.position,
+          company: targetJob.company,
+          city: targetJob.city,
+          startDate: targetJob.startDate,
+          endDate: targetJob.endDate,
+          id: targetJob.id,
+        },
+        jobs: prevState.jobs.filter((job) => job.id !== targetId),
+      };
+    });
+  };
+
   render() {
     const { genInfo, school, schools, job, jobs } = this.state;
     return (
@@ -163,6 +188,8 @@ class App extends Component {
               handleSchoolDelete={this.handleSchoolDelete}
               handleSchoolEdit={this.handleSchoolEdit}
               jobs={jobs}
+              handleJobDelete={this.handleJobDelete}
+              handleJobEdit={this.handleJobEdit}
             />
           </div>
         </main>
