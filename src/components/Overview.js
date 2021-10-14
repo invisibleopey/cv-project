@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Overview(props) {
-  const { genInfo, schools, handleSchoolDelete, handleSchoolEdit } = props;
+  const { genInfo, schools, handleSchoolDelete, handleSchoolEdit, job } = props;
   return (
     <div>
       <div className="overview-hero">
@@ -39,6 +39,20 @@ function Overview(props) {
               </div>
             );
           })}
+        </div>
+        <div className="overview-exp">
+          <h3>Experience</h3>
+          <div className="jobs">
+            <div>
+              <h4>{`${job.startDate} - ${job.endDate}`}</h4>
+            </div>
+            <div>
+              <h4>{`${job.position}`}</h4>
+              <p>{`${job.company}, ${job.city}`}</p>
+            </div>
+            <FontAwesomeIcon icon={faEdit} onClick={handleSchoolEdit} />
+            <FontAwesomeIcon icon={faTrashAlt} onClick={handleSchoolDelete} />
+          </div>
         </div>
       </div>
     </div>
