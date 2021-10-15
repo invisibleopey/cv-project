@@ -3,15 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Overview(props) {
-  const {
-    genInfo,
-    schools,
-    handleSchoolDelete,
-    handleSchoolEdit,
-    jobs,
-    handleJobDelete,
-    handleJobEdit,
-  } = props;
+  const { genInfo, schools, jobs, handleDelete, handleSchoolEdit, handleJobEdit } = props;
   return (
     <div>
       <div className="overview-hero">
@@ -43,7 +35,7 @@ function Overview(props) {
                   <p>Subject: {school.subject}</p>
                 </div>
                 <FontAwesomeIcon icon={faEdit} onClick={handleSchoolEdit} className="icons" />
-                <FontAwesomeIcon icon={faTrashAlt} onClick={handleSchoolDelete} className="icons" />
+                <FontAwesomeIcon icon={faTrashAlt} onClick={handleDelete} className="icons" />
               </div>
             );
           })}
@@ -61,7 +53,7 @@ function Overview(props) {
                   <p>{`${job.company}, ${job.city}`}</p>
                 </div>
                 <FontAwesomeIcon icon={faEdit} onClick={handleJobEdit} className="icons" />
-                <FontAwesomeIcon icon={faTrashAlt} onClick={handleJobDelete} className="icons" />
+                <FontAwesomeIcon icon={faTrashAlt} onClick={handleDelete} className="icons" />
               </div>
             );
           })}

@@ -67,6 +67,23 @@ class App extends Component {
     });
   };
 
+  handleDelete = (event) => {
+    const targetId = event.target.parentNode.parentElement.id;
+    let deleteTarget;
+    // eslint-disable-next-line default-case
+    switch (event.target.parentNode.parentElement.className) {
+      case 'schools':
+        deleteTarget = 'schools';
+        break;
+      case 'jobs':
+        deleteTarget = 'jobs';
+        break;
+    }
+    this.setState({
+      [deleteTarget]: this.state[deleteTarget].filter((item) => item.id !== targetId),
+    });
+  };
+
   handleSchoolSubmit = (event) => {
     event.preventDefault();
     this.setState({
@@ -80,13 +97,6 @@ class App extends Component {
         endDate: '',
         id: uniqid(),
       },
-    });
-  };
-
-  handleSchoolDelete = (event) => {
-    const targetId = event.target.parentNode.parentElement.id;
-    this.setState({
-      schools: this.state.schools.filter((school) => school.id !== targetId),
     });
   };
 
@@ -121,13 +131,6 @@ class App extends Component {
         endDate: '',
         id: uniqid(),
       },
-    });
-  };
-
-  handleJobDelete = (event) => {
-    const targetId = event.target.parentNode.parentElement.id;
-    this.setState({
-      jobs: this.state.jobs.filter((job) => job.id !== targetId),
     });
   };
 
@@ -174,10 +177,9 @@ class App extends Component {
             <Overview
               genInfo={genInfo}
               schools={schools}
-              handleSchoolDelete={this.handleSchoolDelete}
-              handleSchoolEdit={this.handleSchoolEdit}
               jobs={jobs}
-              handleJobDelete={this.handleJobDelete}
+              handleDelete={this.handleDelete}
+              handleSchoolEdit={this.handleSchoolEdit}
               handleJobEdit={this.handleJobEdit}
             />
           </div>
