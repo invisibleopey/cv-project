@@ -42,8 +42,8 @@ function Overview(props) {
                   <p>Degree: {school.degree}</p>
                   <p>Subject: {school.subject}</p>
                 </div>
-                <FontAwesomeIcon icon={faEdit} onClick={handleSchoolEdit} />
-                <FontAwesomeIcon icon={faTrashAlt} onClick={handleSchoolDelete} />
+                <FontAwesomeIcon icon={faEdit} onClick={handleSchoolEdit} className="icons" />
+                <FontAwesomeIcon icon={faTrashAlt} onClick={handleSchoolDelete} className="icons" />
               </div>
             );
           })}
@@ -60,8 +60,8 @@ function Overview(props) {
                   <h4>{`${job.position}`}</h4>
                   <p>{`${job.company}, ${job.city}`}</p>
                 </div>
-                <FontAwesomeIcon icon={faEdit} onClick={handleJobEdit} />
-                <FontAwesomeIcon icon={faTrashAlt} onClick={handleJobDelete} />
+                <FontAwesomeIcon icon={faEdit} onClick={handleJobEdit} className="icons" />
+                <FontAwesomeIcon icon={faTrashAlt} onClick={handleJobDelete} className="icons" />
               </div>
             );
           })}
