@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Experience(props) {
-  const { job, handleJobChange, handleJobSubmit } = props;
+  const { job, handleChange, handleJobSubmit } = props;
   return (
     <div>
       <h2>Experience</h2>
@@ -11,35 +11,35 @@ function Experience(props) {
           name="position"
           value={job.position}
           placeholder="Position"
-          onChange={handleJobChange}
+          onChange={handleChange}
         />
         <input
           type="text"
           name="company"
           value={job.company}
           placeholder="Company"
-          onChange={handleJobChange}
+          onChange={handleChange}
         />
         <input
           type="text"
           name="city"
           value={job.city}
           placeholder="City"
-          onChange={handleJobChange}
+          onChange={handleChange}
         />
         <input
           type="text"
           name="startDate"
           value={job.startDate}
           placeholder="From"
-          onChange={handleJobChange}
+          onChange={handleChange}
         />
         <input
           type="text"
           name="endDate"
           value={job.endDate}
           placeholder="To"
-          onChange={handleJobChange}
+          onChange={handleChange}
         />
         <button type="submit">ADD</button>
       </form>

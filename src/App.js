@@ -44,22 +44,23 @@ class App extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
+    let formSection;
+    // eslint-disable-next-line default-case
+    switch (event.target.parentNode.className) {
+      case 'gen-info':
+        formSection = 'genInfo';
+        break;
+      case 'education':
+        formSection = 'school';
+        break;
+      case 'experience':
+        formSection = 'job';
+        break;
+    }
     this.setState((prevState) => {
       return {
-        genInfo: {
-          ...prevState.genInfo,
-          [name]: value,
-        },
-      };
-    });
-  };
-
-  handleSchoolChange = (event) => {
-    const { name, value } = event.target;
-    this.setState((prevState) => {
-      return {
-        school: {
-          ...prevState.school,
+        [formSection]: {
+          ...prevState[formSection],
           [name]: value,
         },
       };
@@ -104,18 +105,6 @@ class App extends Component {
           id: targetSchool.id,
         },
         schools: prevState.schools.filter((school) => school.id !== targetId),
-      };
-    });
-  };
-
-  handleJobChange = (event) => {
-    const { name, value } = event.target;
-    this.setState((prevState) => {
-      return {
-        job: {
-          ...prevState.job,
-          [name]: value,
-        },
       };
     });
   };
@@ -172,12 +161,12 @@ class App extends Component {
             <GeneralInfo genInfo={genInfo} handleChange={this.handleChange} />
             <Education
               school={school}
-              handleSchoolChange={this.handleSchoolChange}
+              handleChange={this.handleChange}
               handleSchoolSubmit={this.handleSchoolSubmit}
             />
             <Experience
               job={job}
-              handleJobChange={this.handleJobChange}
+              handleChange={this.handleChange}
               handleJobSubmit={this.handleJobSubmit}
             />
           </div>
