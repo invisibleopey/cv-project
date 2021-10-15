@@ -31,26 +31,40 @@ h1 {
   text-align: center;
   width: 50%;
   margin: 0 auto;
-  border: 5px solid burlywood;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+
+.form-container h2 {
+  margin: 7px 0;
+}
+
+.form-container button {
+  padding: 7px 12px;
+  color: antiquewhite;
+  background: rgba(0, 0, 0, 0.8);
+  border: none;
+  border-radius: 5px;
 }
 
 .gen-info,
-.education {
+.education,
+.experience {
   padding: 0 1em;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
 }
 .gen-info input,
-.education input {
+.education input,
+.experience input {
   padding: 5px 10px;
 }
 
 .overview-container {
   width: 50%;
   margin: 2em auto;
-  border: 5px solid burlywood;
   height: 100vh;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
 }
 
 .overview-hero {
@@ -67,14 +81,30 @@ h1 {
 }
 .overview-main {
   padding: 1em;
-  border: 1px solid red;
+}
+
+.overview-main h3 {
+  color: cadetblue;
 }
 
 textarea {
   resize: none;
 }
 
-.schools {
+.schools,
+.jobs {
   display: flex;
   gap: 2em;
+}
+
+.icons {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 765px) {
+  .form-container,
+  .overview-container {
+    width: 100%;
+    height: auto;
+  }
 }
