@@ -11,15 +11,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      genInfo: {
-        firstName: '',
-        lastName: '',
-        title: '',
-        address: '',
-        email: '',
-        phoneNumber: '',
-        description: '',
-      },
+      firstName: '',
+      lastName: '',
+      title: '',
+      address: '',
+      email: '',
+      phoneNumber: '',
+      description: '',
       school: {
         name: '',
         city: '',
@@ -44,26 +42,8 @@ class App extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    let formSection;
-    // eslint-disable-next-line default-case
-    switch (event.target.parentNode.className) {
-      case 'gen-info':
-        formSection = 'genInfo';
-        break;
-      case 'education':
-        formSection = 'school';
-        break;
-      case 'experience':
-        formSection = 'job';
-        break;
-    }
-    this.setState((prevState) => {
-      return {
-        [formSection]: {
-          ...prevState[formSection],
-          [name]: value,
-        },
-      };
+    this.setState({
+      [name]: value,
     });
   };
 
@@ -153,7 +133,19 @@ class App extends Component {
   };
 
   render() {
-    const { genInfo, school, schools, job, jobs } = this.state;
+    const {
+      firstName,
+      lastName,
+      title,
+      address,
+      email,
+      phoneNumber,
+      description,
+      school,
+      schools,
+      job,
+      jobs,
+    } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -161,7 +153,16 @@ class App extends Component {
         </header>
         <main>
           <div className="form-container">
-            <GeneralInfo genInfo={genInfo} handleChange={this.handleChange} />
+            <GeneralInfo
+              firstName={firstName}
+              lastName={lastName}
+              title={title}
+              address={address}
+              email={email}
+              phoneNumber={phoneNumber}
+              description={description}
+              handleChange={this.handleChange}
+            />
             <Education
               school={school}
               handleChange={this.handleChange}
@@ -175,7 +176,13 @@ class App extends Component {
           </div>
           <div className="overview-container">
             <Overview
-              genInfo={genInfo}
+              firstName={firstName}
+              lastName={lastName}
+              title={title}
+              address={address}
+              email={email}
+              phoneNumber={phoneNumber}
+              description={description}
               schools={schools}
               jobs={jobs}
               handleDelete={this.handleDelete}

@@ -3,23 +3,36 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Overview(props) {
-  const { genInfo, schools, jobs, handleDelete, handleSchoolEdit, handleJobEdit } = props;
+  const {
+    firstName,
+    lastName,
+    title,
+    address,
+    email,
+    phoneNumber,
+    description,
+    schools,
+    jobs,
+    handleDelete,
+    handleSchoolEdit,
+    handleJobEdit,
+  } = props;
   return (
     <div>
       <div className="overview-hero">
-        <h2>{`${genInfo.firstName} ${genInfo.lastName}`}</h2>
-        <h3>{genInfo.title}</h3>
+        <h2>{`${firstName} ${lastName}`}</h2>
+        <h3>{title}</h3>
       </div>
       <div className="overview-main">
         <div className="contact-details">
           <h3>Contact Details</h3>
-          <p>Address: {genInfo.address}</p>
-          <p>Email: {genInfo.email}</p>
-          <p>Phone Number: {genInfo.phoneNumber}</p>
+          <p>Address: {address}</p>
+          <p>Email: {email}</p>
+          <p>Phone Number: {phoneNumber}</p>
         </div>
         <div className="description">
           <h3>Description</h3>
-          <p>{genInfo.description}</p>
+          <p>{description}</p>
         </div>
         <div className="overview-edu">
           <h3>Education</h3>
